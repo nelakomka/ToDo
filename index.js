@@ -3,12 +3,12 @@ const n = new Date();
 const y = n.getFullYear();
 const m = n.getMonth() + 1;
 const d = n.getDate();
-document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+document.getElementById('date').innerHTML = m + '/' + d + '/' + y;
 
 let x = 0;
 
-const getTasks = document.querySelector(".tasks");
-const getInput = document.querySelector(".input");
+const getTasks = document.querySelector('.tasks');
+const getInput = document.querySelector('.input');
 
 const addTask = () => {
   //get input
@@ -20,22 +20,23 @@ const addTask = () => {
   }
 
   //create input and checkbox
-  const createDiv = document.createElement("div");
-  const createInput = document.createElement("input");
-  const createLabel = document.createElement("label");
-  const createSpan = document.createElement("span");
-  const createDelete = document.createElement("button");
+  const createDiv = document.createElement('div');
+  const createInput = document.createElement('input');
+  const createLabel = document.createElement('label');
+  const createSpan = document.createElement('span');
+  const createDelete = document.createElement('button');
 
   createSpan.innerHTML = value; //put value in span
-  createDelete.innerHTML = "x"; //add text to delete button
+  createDelete.innerHTML = 'x'; //add text to delete button
 
   //add ids and event
-  createDiv.setAttribute("class", "task");
-  createDiv.setAttribute("id", String(x));
-  createInput.setAttribute("id", `checkbox${x}`);
-  createInput.setAttribute("type", "checkbox");
-  createLabel.setAttribute("for", `checkbox${x}`);
-  createDelete.addEventListener("click", deleteToDo);
+  createDiv.setAttribute('class', 'task');
+  createDiv.setAttribute('id', String(x));
+  createInput.setAttribute('id', `checkbox${x}`);
+  createInput.setAttribute('type', 'checkbox');
+  createLabel.setAttribute('for', `checkbox${x}`);
+  createDelete.classList.add('delete-button')
+  createDelete.addEventListener('click', deleteToDo);
   x++;
 
   //create text
@@ -46,7 +47,7 @@ const addTask = () => {
   createDiv.appendChild(createDelete); //create delete button
 
   //clear input
-  getInput.value = "";
+  getInput.value = '';
 };
 
 function deleteToDo(event) {
@@ -55,7 +56,7 @@ function deleteToDo(event) {
   parentElement.remove();
 }
 
-getInput.addEventListener("keydown", (ev) => {
+getInput.addEventListener('keydown', (ev) => {
   if (ev.keyCode === 13) {
     addTask();
   }
